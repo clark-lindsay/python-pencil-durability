@@ -1,7 +1,11 @@
-import pencil
+from pencil import Pencil
 
 def test_writes_text_it_is_given():
-    yellow_pencil = pencil.Pencil()
-    assert yellow_pencil.write('word') == 'word'
-    assert yellow_pencil.write('z') == 'z'
-    assert yellow_pencil.write('a sentence with whitespace') == 'a sentence with whitespace'
+    pencil = Pencil()
+    assert pencil.write('word') == 'word'
+    assert pencil.write('z') == 'z'
+    assert pencil.write('a sentence with whitespace') == 'a sentence with whitespace'
+
+def test_pencil_tip_degrades_with_use():
+    pencil = Pencil(3)
+    assert pencil.write('word') == 'wor '
