@@ -14,6 +14,10 @@ def test_point_degrades_when_writing_non_alpha_numerics():
     pencil = Pencil(5)
     assert pencil.write('!@#$%^&*()') == '!@#$%     '
 
-def test_writing_whitespace_does_not_degrade_point():
+def test_writing_spaces_does_not_degrade_point():
     pencil = Pencil(5)
-    assert pencil.write('   string') == '   strin '
+    assert pencil.write('\n   string') == '\n   strin '
+
+def test_writing_whitespace_escape_chars_does_not_degrade_point():
+    pencil = Pencil(5)
+    assert pencil.write('\n\t\v\f\r   string') == '\n\t\v\f\r   strin '
