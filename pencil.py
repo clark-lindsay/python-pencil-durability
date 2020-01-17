@@ -5,13 +5,16 @@ class Pencil:
     def write(self, text):
         written_text = ''
         for char in text:
-            if self.point_durability > 0:
-                written_text = written_text + char
-                if not char.isspace():
-                    if char.isupper():
-                        self.point_durability -= 2
-                    else:   
-                        self.point_durability -= 1
-            else:
-                written_text = written_text + ' '
+            written_text += self._write_char(char)
         return written_text
+
+    def _write_char(self, char):
+        if self.point_durability > 0:
+            if not char.isspace():
+                if char.isupper():
+                    self.point_durability -= 2
+                else:   
+                    self.point_durability -= 1
+            return char
+        else:
+            return ' '
