@@ -1,6 +1,7 @@
 class Pencil:
-    def __init__(self, point_durability = 100):
-        self.point_durability = point_durability
+    def __init__(self, point_durability = 100, length = 5):
+        self.point_durability = self.max_point_durability = point_durability
+        self.length = length
 
     def write(self, text):
         written_text = ''
@@ -18,3 +19,9 @@ class Pencil:
             return char
         else:
             return ' '
+
+    def sharpen(self):
+        if self.length > 0:
+            self.point_durability = self.max_point_durability
+            self.length -= 1
+        
