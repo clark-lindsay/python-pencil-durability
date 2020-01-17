@@ -6,8 +6,8 @@ class Eraser:
         reversedText = reverse(text)
         reversedToErase = reverse(toErase)[:self.durability + count_whitespace_chars(toErase)]
         replaceWith = ' ' * len(reversedToErase)
-
         self.durability -= len(replaceWith)
+
         return reverse(reversedText.replace(reversedToErase, replaceWith, 1))
 
 def reverse(text):
