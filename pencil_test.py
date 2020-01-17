@@ -10,6 +10,14 @@ def test_point_degrades_when_writing_letters():
     pencil = Pencil(3)
     assert pencil.write('word') == 'wor '
 
+def test_point_degrades_two_points_for_capital_letters():
+    pencil = Pencil(4)
+    assert pencil.write('Text') == 'Tex '
+
+def test_can_write_a_capital_with_only_one_point_of_durability_remaining():
+    pencil = Pencil(4)
+    assert pencil.write('texT') == 'texT'
+
 def test_point_degrades_when_writing_non_alpha_numerics():
     pencil = Pencil(5)
     assert pencil.write('!@#$%^&*()') == '!@#$%     '

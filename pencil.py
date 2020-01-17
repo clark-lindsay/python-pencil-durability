@@ -8,7 +8,10 @@ class Pencil:
             if self.point_durability > 0:
                 written_text = written_text + char
                 if not char.isspace():
-                    self.point_durability -= 1
+                    if char.isupper():
+                        self.point_durability -= 2
+                    else:   
+                        self.point_durability -= 1
             else:
                 written_text = written_text + ' '
         return written_text
