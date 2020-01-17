@@ -1,4 +1,10 @@
 class Eraser:
     def erase(self, toErase, text):
-        editedText = text[::-1].replace(toErase[::-1], ' ' * len(toErase), 1)
-        return editedText[::-1]
+        reversedText = reverse(text)
+        reversedToErase = reverse(toErase)
+        replaceWith = ' ' * len(toErase)
+
+        return reverse(reversedText.replace(reversedToErase, replaceWith, 1))
+
+def reverse(text):
+    return text[::-1]
