@@ -1,5 +1,5 @@
 class Pencil:
-    def __init__(self, point_durability = 100, length = 5):
+    def __init__(self, point_durability=100, length=5):
         self.point_durability = self.max_point_durability = point_durability
         self.length = length
 
@@ -14,7 +14,7 @@ class Pencil:
             if not char.isspace():
                 if char.isupper():
                     self.point_durability -= 2
-                else:   
+                else:
                     self.point_durability -= 1
             return char
         else:
@@ -24,4 +24,3 @@ class Pencil:
         if self.length > 0:
             self.point_durability = self.max_point_durability
             self.length -= 1
-        

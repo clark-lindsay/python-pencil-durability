@@ -1,5 +1,5 @@
 class Eraser:
-    def __init__(self, durability = 100):
+    def __init__(self, durability=100):
         self.durability = durability
 
     def erase(self, toErase, text):
@@ -10,8 +10,10 @@ class Eraser:
 
         return reverse(reversedText.replace(reversedToErase, replaceWith, 1))
 
+
 def reverse(text):
     return text[::-1]
+
 
 def count_whitespace_chars(text):
     return len([char for char in list(text) if char.isspace()])
