@@ -9,13 +9,19 @@ class Eraser:
         replaceWith = ' ' * len(reversedToErase)
         self.durability -= len(replaceWith)
 
-        return reverse(reversedText.replace(reversedToErase, replaceWith, 1))
+        editedText = reverse(reversedText.replace(reversedToErase, replaceWith, 1))
+        self._erase_postconditions(text, editedText)
+        return editedText
 
     def _erase_preconditions(self, toErase, text):
         if type(toErase) is not str:
             raise ValueError('expected toErase to be of type "str"')
         if type(text) is not str:
             raise ValueError('expected text to be of type "str"')
+
+    def _erase_postconditions(self, text, editedText):
+        if len(editedText) > len(text):
+            raise ValueError('erased text became longer than original text')
 
 
 def reverse(text):
