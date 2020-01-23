@@ -35,3 +35,23 @@ def test_reverse():
 def test_count_whitespace_chars():
     assert count_whitespace_chars('nospaces') == 0
     assert count_whitespace_chars('text with spaces \n') == 4
+
+
+def test_throws_error_given_non_string_target():
+    eraser = Eraser()
+    returnedError = False
+    try:
+        eraser.erase(8, 'chuck')
+    except ValueError:
+        returnedError = True
+    assert(returnedError)
+
+
+def test_throws_error_given_non_string_text():
+    eraser = Eraser()
+    returnedError = False
+    try:
+        eraser.erase('chuck', 8)
+    except ValueError:
+        returnedError = True
+    assert(returnedError)
