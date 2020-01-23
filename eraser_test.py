@@ -27,6 +27,12 @@ def test_erasing_whitespace_does_not_lower_durability():
     assert eraser.erase('these words', 'this word and these words') == 'this word and            '
 
 
+def test_will_not_erase_if_target_is_not_present():
+    eraser = Eraser()
+    body = 'some text that will not change'
+    assert eraser.erase('bob', body) == body
+
+
 def test_reverse():
     assert reverse('word') == 'drow'
     assert reverse('text with spaces \n') == '\n secaps htiw txet'
