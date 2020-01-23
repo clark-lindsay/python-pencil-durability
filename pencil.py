@@ -4,6 +4,7 @@ class Pencil:
         self.length = length
 
     def write(self, text):
+        self._write_preconditions(text)
         written_text = ''
         for char in text:
             written_text += self._write_char(char)
@@ -24,3 +25,7 @@ class Pencil:
         if self.length > 0:
             self.point_durability = self.max_point_durability
             self.length -= 1
+
+    def _write_preconditions(self, text):
+        if type(text) is not str:
+            raise ValueError('type of "text" must be "str"')

@@ -52,3 +52,13 @@ def test_once_sharpened_to_length_0_it_does_not_restore_point_durability():
     assert pencil.write('Texts') == 'Text '
     pencil.sharpen()
     assert pencil.write('Texts') == '     '
+
+
+def test_write_throws_when_given_non_string_text():
+    pencil = Pencil()
+    raisedException = False
+    try:
+        pencil.write(7)
+    except ValueError:
+        raisedException = True
+    assert(raisedException)

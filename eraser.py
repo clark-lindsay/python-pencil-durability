@@ -24,6 +24,7 @@ class Eraser:
             raise ValueError('erased text became longer than original text')
 
 
+# should these two functions be broken out into their own modules?
 def reverse(text):
     return text[::-1]
 
