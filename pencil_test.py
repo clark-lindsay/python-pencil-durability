@@ -60,6 +60,12 @@ def test_can_write_into_a_whitespace_gap():
     assert pencil.edit('onion', sentence, 3) == 'An onion a day keeps the doctor away.'
 
 
+def test_overwrites_chars_with_at_sign():
+    pencil = Pencil()
+    sentence = 'An       a day keeps the doctor away'
+    assert pencil.edit('artichoke', sentence, 3) == 'An artich@k@ay keeps the doctor away'
+
+
 def test_write_throws_when_given_non_string_text():
     pencil = Pencil()
     raisedException = False
