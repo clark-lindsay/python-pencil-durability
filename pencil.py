@@ -14,10 +14,12 @@ class Pencil:
         return written_text
 
     def edit(self, text, existingText, writeHeadPosition):
-        textToInsert = text
+        textToInsert = ''
         for i in range(0, len(text)):
             if not existingText[writeHeadPosition + i].isspace():
-                textToInsert = overwrite_in_string(textToInsert, '@', i)
+                textToInsert += self._write_char('@')
+            else:
+                textToInsert += self._write_char(text[i])
         return overwrite_in_string(existingText, textToInsert, writeHeadPosition)
 
     def _write_char(self, char):

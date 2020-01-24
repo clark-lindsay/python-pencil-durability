@@ -66,6 +66,12 @@ def test_overwrites_chars_with_at_sign():
     assert pencil.edit('artichoke', sentence, 3) == 'An artich@k@ay keeps the doctor away'
 
 
+def test_edit_writes_spaces_when_out_of_lead():
+    pencil = Pencil(5)
+    sentence = 'An       a day'
+    assert pencil.edit('artichoke', sentence, 3) == 'An artic    ay'
+
+
 def test_write_throws_when_given_non_string_text():
     pencil = Pencil()
     raisedException = False
