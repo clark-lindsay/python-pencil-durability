@@ -1,3 +1,6 @@
+from string_util import overwrite_in_string
+
+
 class Pencil:
     def __init__(self, point_durability=100, length=5):
         self.point_durability = self.max_point_durability = point_durability
@@ -9,6 +12,13 @@ class Pencil:
         for char in text:
             written_text += self._write_char(char)
         return written_text
+
+    def edit(self, text, existingText, writeHeadPosition):
+        textToInsert = text
+        for i in range(0, len(text)):
+            if not existingText[writeHeadPosition + i].isspace():
+                textToInsert = overwrite_in_string(textToInsert, '@', i)
+        return overwrite_in_string(existingText, textToInsert, writeHeadPosition)
 
     def _write_char(self, char):
         if self.point_durability > 0:

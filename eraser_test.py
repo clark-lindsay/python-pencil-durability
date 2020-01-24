@@ -38,11 +38,6 @@ def test_reverse():
     assert reverse('text with spaces \n') == '\n secaps htiw txet'
 
 
-def test_count_whitespace_chars():
-    assert count_whitespace_chars('nospaces') == 0
-    assert count_whitespace_chars('text with spaces \n') == 4
-
-
 def test_throws_error_given_non_string_target():
     eraser = Eraser()
     returnedError = False

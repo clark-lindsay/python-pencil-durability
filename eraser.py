@@ -1,3 +1,6 @@
+from string_util import reverse, count_whitespace_chars
+
+
 class Eraser:
     def __init__(self, durability=100):
         self.durability = durability
@@ -22,12 +25,3 @@ class Eraser:
     def _erase_postconditions(self, text, editedText):
         if len(editedText) > len(text):
             raise ValueError('erased text became longer than original text')
-
-
-# should these two functions be broken out into their own modules?
-def reverse(text):
-    return text[::-1]
-
-
-def count_whitespace_chars(text):
-    return len([char for char in list(text) if char.isspace()])

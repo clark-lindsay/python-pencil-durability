@@ -54,6 +54,12 @@ def test_once_sharpened_to_length_0_it_does_not_restore_point_durability():
     assert pencil.write('Texts') == '     '
 
 
+def test_can_write_into_a_whitespace_gap():
+    pencil = Pencil()
+    sentence = 'An       a day keeps the doctor away.'
+    assert pencil.edit('onion', sentence, 3) == 'An onion a day keeps the doctor away.'
+
+
 def test_write_throws_when_given_non_string_text():
     pencil = Pencil()
     raisedException = False
